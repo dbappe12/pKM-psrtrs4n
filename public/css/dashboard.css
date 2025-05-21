@@ -1,0 +1,187 @@
+/* dashboard.css */
+
+/* Base Styles for Dashboard */
+.content-wrapper {
+    background: linear-gradient(180deg, #f4f6f9 0%, #e9ecef 100%);
+    transition: background 0.3s ease;
+}
+
+/* Content Header */
+.content-header {
+    padding: 20px 0;
+    background: linear-gradient(90deg, #007bff, #00d4ff);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.content-header h1 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.content-header h1:hover {
+    transform: translateY(-2px);
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    background: transparent;
+    padding: 8px 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-item a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.breadcrumb-item a:hover {
+    color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+.breadcrumb-item.active {
+    color: #e0e0e0;
+    font-weight: 600;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    color: #fff;
+    content: "/";
+}
+
+/* Small Boxes (Stat Boxes) */
+.small-box {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    background: #fff;
+}
+
+.small-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.small-box .inner {
+    padding: 20px;
+    color: #fff;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
+    transition: background 0.3s ease;
+}
+
+.small-box.bg-info .inner {
+    background: linear-gradient(135deg, #17a2b8, #00d4ff);
+}
+
+.small-box.bg-success .inner {
+    background: linear-gradient(135deg, #28a745, #00ff7f);
+}
+
+.small-box.bg-warning .inner {
+    background: linear-gradient(135deg, #ffc107, #ffd700);
+}
+
+.small-box h3 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.small-box p {
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.small-box .icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 3.5rem;
+    opacity: 0.3;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.small-box:hover .icon {
+    transform: scale(1.2);
+    opacity: 0.5;
+}
+
+.small-box .small-box-footer {
+    background: rgba(0, 0, 0, 0.1);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.small-box .small-box-footer:hover {
+    background: rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+}
+
+.small-box .small-box-footer i {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.small-box .small-box-footer:hover i {
+    transform: translateX(5px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .small-box h3 {
+        font-size: 1.8rem;
+    }
+
+    .small-box .icon {
+        font-size: 3rem;
+    }
+
+    .breadcrumb-item a {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .content-header {
+        padding: 15px 0;
+    }
+
+    .small-box {
+        margin-bottom: 15px;
+    }
+}

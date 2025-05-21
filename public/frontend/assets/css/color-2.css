@@ -1,0 +1,11 @@
+:root {
+    --austry-base: #7eb441;
+    --austry-base-rgb: 126, 180, 65;
+}
+
+.preloader__image {
+    background-image: linear-gradient(90deg, #007bff 0%, #ffffff 50%, #007bff 100%), url(../images/loader-2.png);
+    background-blend-mode: overlay; /* atau try multiply, screen, dst */
+    background-size: cover;
+    background-position: center;
+}
