@@ -71,7 +71,7 @@
                                 <x-input label="Judul" id="judul"  info="Info : Sample Data Description Info"
                                     placeholder="Judul" />
 
-                             <x-input label="Slug" id="slug"  info="Info : Sample Data Description Info"
+                             <x-input label="Slug" id="slug"  info="Info : Jangan Merubah Isi Slug ini"
                                     placeholder="Slug" />
                               
                               
