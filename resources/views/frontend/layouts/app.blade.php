@@ -11,7 +11,6 @@
 
      
 </style>
-
 <?php 
 use Carbon\Carbon;
 
@@ -32,6 +31,7 @@ $currentMonth = Carbon::now();
     <!-- favicons Icons -->
      <!-- New css -->
     <link rel="stylesheet" href="{{ asset('css/front_layout_index.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/wa-style.css') }}">
     <!-- End new css -->
 
     <!-- other css stack -->
@@ -326,7 +326,7 @@ $currentMonth = Carbon::now();
                         <div class="kepala-profile" style="text-align: center; margin-top: 20px;">
                             <img src="{{ asset('img/kepala1.jpg') }}" alt="Kepala {{config('app.nama_pic')}}" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 2px solid #01805E;">
                             <p style="margin-top: 10px; font-size: 14px; color: #fff; font-weight: 600;">{{config('app.nama_kapus')}}</p>
-                            <p style="font-size: 12px; color: #ccc;">Kepala {{config('app.nama_pic')}}</p>
+                            <p style="font-size: 12px; color: #ccc; white-space: nowrap;">Kepala {{config('app.nama_pic')}}</p>
                         </div>                                
                             </div>
                         </div>
@@ -402,6 +402,29 @@ $currentMonth = Carbon::now();
         <!-- /.search-popup__content -->
     </div>
     <!-- /.search-popup -->
+<!-- WhatsApp Chat Widget -->
+<div id="whatsapp-chat-widget" class="whatsapp-chat-widget">
+    <div class="whatsapp-chat-button">
+        <img src="{{asset('img/WhatsApp.svg.webp')}}" alt="WhatsApp Icon" class="whatsapp-icon">
+    </div>
+    <div class="whatsapp-chat-popup">
+        <div class="whatsapp-chat-header">
+            <img src="{{asset('img/logo_pkm.png')}}" alt="Brand Logo" class="whatsapp-brand-logo">
+            <div class="whatsapp-brand-text">
+                <div class="whatsapp-brand-name">{{config('app.nama_pic')}}</div>
+                <div class="whatsapp-brand-subtitle">UPTD Dinas Kesehatan</div>
+                <div class="whatsapp-brand-subtitle">Pemerintah Kabupaten Batang Hari</div>
+            </div>
+        </div>
+        <div class="whatsapp-chat-body">
+            <p>Hi Kamu yang disana!<br>Ada yang bisa saya bantu?</p>
+        </div>
+        <div class="whatsapp-chat-footer">
+            <a href="https://api.whatsapp.com/send?phone=6282267205866&text=Salam%20Sehat%20Bapak%2FIbu%20admin%20Puskesmas%2C%20Izin%20sebelumnya%20saya%20mau%20bertanya." target="_blank" class="whatsapp-start-chat">Mulai Percakapan</a>
+        </div>
+    </div>
+</div>
+
 
 
   
@@ -440,16 +463,62 @@ $currentMonth = Carbon::now();
     <script src="{{ asset('template/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 
 
-    <!-- template js -->
-    <script src="{{ asset('frontend/assets/js/austry.js')}}"></script>
-    <script> var url = 'https://widget.bot.space/js/widget.js'; 
-var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url; 
-var options = {"enabled":true,"chatButtonSetting":{"backgroundColor":"#13C656","ctaText":"","borderRadius":"6","marginLeft":"20",
-"marginBottom":"20","marginRight":"20","position":"right"},"brandSetting":{"brandName":"{{config('app.nama_pic')}}",
-"brandSubTitle":"UPTD Dinas Kesehatan Pemerintah Kabupaten Batang Hari","brandImg":"{{asset('img/logo_pkm.png')}}",
-"welcomeText":"Hi Kamu yang disana!\nAda yang bisa saya bantu?","backgroundColor":"#01805E","ctaText":"Start Chat",
-"borderRadius":"6","autoShow":false,"phoneNumber":"+6282267205866"}}; s.onload = function() { CreateWhatsappChatWidget(options); }; 
-var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); </script>
+<!-- JavaScript for Toggle and Click-Outside Functionality -->
+<script src="{{ asset('frontend/assets/js/austry.js') }}"></script>
+<script>
+    (function () {
+        try {
+            document.addEventListener('DOMContentLoaded', function () {
+                const chatButton = document.querySelector('.whatsapp-chat-button');
+                const chatPopup = document.querySelector('.whatsapp-chat-popup');
+                const widget = document.querySelector('#whatsapp-chat-widget');
+
+                // Check if elements are found
+                if (!chatButton || !chatPopup || !widget) {
+                    console.error('WhatsApp widget elements not found:', {
+                        chatButton: !!chatButton,
+                        chatPopup: !!chatPopup,
+                        widget: !!widget
+                    });
+                    return;
+                }
+
+                let isChatOpen = false;
+
+                // Auto-show setting
+                const autoShow = false;
+                if (autoShow) {
+                    chatPopup.classList.add('active');
+                    isChatOpen = true;
+                }
+
+                // Toggle chat popup on button click
+                chatButton.addEventListener('click', function (event) {
+                    event.stopPropagation();
+                    isChatOpen = !isChatOpen;
+                    chatPopup.classList.toggle('active', isChatOpen);
+                    console.log('Chat button clicked, isChatOpen:', isChatOpen); // Debug
+                });
+
+                // Close popup when clicking outside
+                document.addEventListener('click', function (event) {
+                    if (isChatOpen && !widget.contains(event.target)) {
+                        isChatOpen = false;
+                        chatPopup.classList.remove('active');
+                        console.log('Clicked outside, popup closed'); // Debug
+                    }
+                });
+
+                // Prevent clicks inside popup from closing it
+                chatPopup.addEventListener('click', function (event) {
+                    event.stopPropagation();
+                });
+            });
+        } catch (error) {
+            console.error('Error in WhatsApp widget script:', error);
+        }
+    })();
+</script>
 
     
 </body>   
