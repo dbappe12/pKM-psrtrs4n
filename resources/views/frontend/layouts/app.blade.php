@@ -27,7 +27,7 @@ $currentMonth = Carbon::now();
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> .:: Situs {{config('app.nama_pic')}} | UPTD Dinas Kesehatan ::. </title>
+    <title> .:: Situs {{config('app.nama_pic')}}::. </title>
     <!-- favicons Icons -->
      <!-- New css -->
     <link rel="stylesheet" href="{{ asset('css/front_layout_index.css') }}">
@@ -412,8 +412,8 @@ $currentMonth = Carbon::now();
             <img src="{{asset('img/logo_pkm.png')}}" alt="Brand Logo" class="whatsapp-brand-logo">
             <div class="whatsapp-brand-text">
                 <div class="whatsapp-brand-name">{{config('app.nama_pic')}}</div>
-                <div class="whatsapp-brand-subtitle">UPTD Dinas Kesehatan</div>
-                <div class="whatsapp-brand-subtitle">Pemerintah Kabupaten Batang Hari</div>
+                <!-- <div class="whatsapp-brand-subtitle">UPTD Dinas Kesehatan</div>
+                <div class="whatsapp-brand-subtitle">Pemerintah Kabupaten Batang Hari</div> -->
             </div>
         </div>
         <div class="whatsapp-chat-body">
