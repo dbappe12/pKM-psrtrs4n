@@ -411,7 +411,7 @@ $currentMonth = Carbon::now();
         <div class="whatsapp-chat-header">
             <img src="{{asset('img/logo_pkm.png')}}" alt="Brand Logo" class="whatsapp-brand-logo">
             <div class="whatsapp-brand-text">
-                <div class="whatsapp-brand-name">{{config('app.nama_pic2')}}</div>
+                <div class="whatsapp-brand-name">{{config('app.nama_pic')}}</div>
                 <!-- <div class="whatsapp-brand-subtitle">UPTD Dinas Kesehatan</div>
                 <div class="whatsapp-brand-subtitle">Pemerintah Kabupaten Batang Hari</div> -->
             </div>

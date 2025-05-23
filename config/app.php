@@ -199,7 +199,6 @@ return [
     'nama_pic' => env('NAMA','Default Name'),
     'nama_kapus' => env('KAPUS','Default Name'),
     'nama_pic1' => env('NAMA1','Default Name'),
-    'nama_pic2' => env('NAMA2','Default Name'),
     'tahun' => env('TAHUN','Default name'),
 
     'aliases' => Facade::defaultAliases()->merge([
